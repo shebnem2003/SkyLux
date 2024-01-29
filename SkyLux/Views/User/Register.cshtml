@@ -1,0 +1,73 @@
+﻿@model User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="Users">
+        <div class="User">
+            <div class="User1">
+            </div>
+            <div class="login">
+                <div class="login-box">
+                    <h2>Sign Up</h2>
+                    <form asp-action="Register" asp-controller="User" method="post" class="login-form">
+                        <div class="login-label">
+                            <input type="text" asp-for="UserName">
+                            <span class="username" asp-validation-for="UserName"></span>
+                            <label class="name">Username</label>
+                        </div>
+                        <div class="login-label">
+                            <input type="text" asp-for="UserSurname">
+                            <span class="username" asp-validation-for="UserSurname"></span>
+                            <label class="surname">Surname</label>
+                        </div>
+                        <div class="login-label">
+                            <input type="password" asp-for="UserPassword">
+                            <span class="userpassword" asp-validation-for="UserPassword"></span>
+                            <label class="password">Password</label>
+                        </div>
+
+                        <button class="log">Sign Up</button>
+                    </form>
+                    <p>Don`t have an account? <a href="/User/Login">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("body").on("keyup", ".login-form input", function () {
+
+            if ($(this).val() == "") {
+                $(this).parents(".login-label").children().eq(2).css("top", "12px")
+            } else {
+                $(this).parents(".login-label").children().eq(2).css("top", "39px")
+            }
+            $(".login-form input").each(x => {
+                if ($(this).val() == "") {
+                    $(this).parents(".login-label").children().eq(2).css("top", "39px")
+                } else {
+                    $(this).parents(".login-label").children().eq(2).css("top", "12px")
+                }
+            })
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

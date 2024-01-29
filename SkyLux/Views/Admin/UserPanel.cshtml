@@ -1,0 +1,82 @@
+﻿@model List<User>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+<header class="header3">
+    <div class="items">
+        <div class="item">
+            <div class="between">
+                    <div class="logo1">
+                        <img class="logo-image-1" src="/img/logo1.png" alt="">
+                        <a href="/Home/Index"><h1>SkyLux</h1></a>
+                    </div>
+                    <a href="/Admin/UserPanel"><i class="fa-solid fa-user"></i><span> User</span></a>
+                    <a href="/Admin/NewsPanel"><i class="fa-regular fa-newspaper"></i><span> News</span></a>
+                    <a href="/Admin/AdminPanel"><i class="fa-solid fa-clipboard-list"></i><span> Tickets</span></a>
+                    <a href="/Admin/Contact"><i class="fa-solid fa-phone"></i><span> Contact</span></a>
+                    <a href="/Admin/Basket"><i class="fa-solid fa-credit-card"></i><span> Basket</span></a>
+            </div>
+                <a href="/Home/Index" class="bracket"><i class="fa-solid fa-arrow-right-from-bracket"></i> Exit</a>
+        </div>
+        <div class="userpanel">
+            <div class="top">
+                        <div class="search">
+                        <form asp-action="UserPanel" asp-controller="Admin" method="get">
+                            <input type="search" placeholder="Search" class="search" name="search">
+                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                        </div>
+            </div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>UserName</th>
+                        <th>UserSurname</th>
+                        <th>UserPassword</th>
+                        <th>UserStatus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model)
+                    {
+                    <tr>
+                        <td>@item.UserName</td>
+                        <td>@item.UserSurname</td>
+                        <td>@item.UserPassword</td>
+                        <td>
+                                    <a href="/Admin/UserActive/@item.UserId">
+                                        <div class="status" dataID="@item.UserId" style=@(item.UserBlock=="unblocked"?"background-color:green":"background-color:red")>
+                                            <div class="status1" style=@(item.UserBlock=="unblocked"?"right:0px":"left:0px")>
+                                         </div>
+                                 </div>
+                             </a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</header>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

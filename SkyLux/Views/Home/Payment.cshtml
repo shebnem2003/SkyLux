@@ -1,0 +1,157 @@
+﻿@model List<Basket>;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header class="header4">
+    <div class="payments-left">
+        <a href="/Home/Index"><i class="fa-solid fa-house"></i></a>
+        <a href="/User/Login"><i class="fa-solid fa-user"></i></a>
+        <a href="/Home/Index#contact"><i class="fa-solid fa-phone"></i></a>
+    </div>
+    <div class="payments-right">
+        <div class="payments-top">
+            <h1>Payments</h1>
+        </div>
+        <div class="payments">
+            <div class="payments-bottom">
+                <div class="all-tickets">
+                @{
+                    float? sum1 = 0;
+                }
+                @foreach(var item in Model)
+                {
+                    sum1 += item.BasketTicket.TicketPrice;
+                <div class="payments-ticket">
+                        <div class="ticket1">
+                            <h1>@item.BasketTicket.TicketDepartureTime</h1>
+                            <p>@item.BasketTicket.TicketFrom</p>
+                            <span>@Convert.ToDateTime(item.BasketTicket.TicketDepartureDate).ToString("dd.MM.yyyy")</span>
+                        </div>
+                        <div class="ticket2">
+                            <div class="plane">
+                                <i class="fa-solid fa-plane-departure"></i>
+                                <div class="circle"></div>
+                            </div>
+                            <div class="plane1">
+                                <div class="time">1h 55m</div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="plane">
+                                <i class="fa-solid fa-plane-arrival"></i>
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                        <div class="ticket1">
+                            <h1>@item.BasketTicket.TicketArrivalTime</h1>
+                            <p>@item.BasketTicket.TicketTo</p>
+                            <span>
+                                @Convert.ToDateTime(item.BasketTicket.TicketArrivalDate).ToString("dd.MM.yyyy")
+                            </span>
+                        </div>
+                </div>
+                }
+                </div>
+                <div class="passenger">
+                    <div class="div-passenger1">
+                    <h1>Passenger details</h1>
+@*                            <div class="div">
+                    <label class="Passenger">Passenger</label>
+                    <div class="div-passenger">
+                    <i class="fa-solid fa-minus"></i>
+                    <p>1</p>
+                    <i class="fa-solid fa-plus" onclick="funk(${i})"></i>
+                    </div>
+                    </div>*@
+                    </div>
+                    <input type="text" placeholder="Name" id="inputField">
+                    <input type="text" placeholder="Surname" id="inputField">
+                    <input type="text" placeholder="Email" id="inputField">
+                    <input type="password" placeholder="Password" id="inputField">
+                    <button>Save</button>
+                    <p class="unsuccess">
+                        Your information has not been verified
+                        </p>
+                    <p class="success">
+                        Your information has been successfully confirmed
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <h1>Card details</h1>
+                <input type="text" placeholder="Email" id="input">
+                <input type="text" placeholder="Card name" id="input">
+                <input type="text" placeholder="Card Number" id="input">
+                <div class="expiry">
+                    <input type="password" placeholder="Expiry" id="input">
+                    <input type="password" placeholder="CVC" id="input">
+                </div>
+                <div class="Flex">
+                    <h4>Total</h4>
+                    <p>$@(sum1)</p>
+                </div>
+                <button>Pay</button>
+            </div>
+        </div>
+
+    </div>
+</header>
+<div class="modal-alert">
+        <div class="modal">
+            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-solid fa-exclamation"></i>
+            <h1 class="success-h1">Success!</h1>
+            <h1 class="unsuccess-h1">Unsuccess!</h1>
+            <p class="success-p">Your order has been accepted</p>
+            <p class="unsuccess-p" >
+                Your order was not accepted
+            </p>
+            <a href="/Home/Payment">Continue</a>
+    </div>
+</div>
+
+        <script>
+
+    let common = 0
+
+    function funk(i) {
+
+        common += common
+        document.querySelector(".Flex p").innerText = "$" + common
+
+    }
+
+
+    $(".lang").click(function () {
+        $(".setting").fadeToggle()
+    })
+
+    $(".card button").click(function () {
+        var inputValue = $("#input").val();
+        $(".modal-alert").show()
+        $("body").css("overflow", "hidden")
+        if (inputValue == "") {
+            $(".modal .fa-exclamation").show()
+            $(".modal .unsuccess-h1").show()
+            $(".modal .unsuccess-p").show()
+        }
+
+        else {
+            $(".modal .fa-circle-check").show()
+            $(".modal .success-h1").show()
+            $(".modal .success-p").show()
+            $(".modal a").show()
+        }
+    })
+
+
+
+
+    $(".fa-xmark").click(function () {
+        $(".modal-alert").hide()
+        $("body").css("overflow", "auto")
+    })
+
+        </script>

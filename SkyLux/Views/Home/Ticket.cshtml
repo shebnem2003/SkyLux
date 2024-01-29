@@ -1,0 +1,330 @@
+﻿@using System.Security.Claims;
+@model List<Ticket>;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <nav class="nav" id="layout1-nav" style="background-color:transparent !important">
+        <div class="logo">
+            <img class="logo-image-1" src="/img/logo1.png" alt="">
+            <a href="/Home/Index"><h1>SkyLux</h1></a>
+        </div>
+        <div class="bars">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <ul class="ul-responsive">
+            <li><i class="fa-solid fa-clock"></i><p class="hours">15:07</p></li>
+            <li><i class="fa-solid fa-cloud"></i><p class="weather"><span></span>°C</p></li>
+            <li><a href="/Home/Index/#position">Position</a></li>
+            <li><a href="/Home/Index/#services">Services</a></li>
+            <li><a href="/Home/Index/#news">News</a></li>
+            <li><a href="/Home/Index/#about">About</a></li>
+            <li><a href="/Home/Index/#contact">Contact</a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                @if (User.FindFirst(ClaimTypes.NameIdentifier).Value == "Şəbnəm")
+                {
+                    <li><a href="/Admin/AdminPanel">Admin</a></li>
+                }
+                else
+                {
+                    <li><a href="/Home/Basket">@User.FindFirst(ClaimTypes.NameIdentifier).Value</a></li>
+                }
+                <li><a href="/Home/Ticket">Ticket</a></li>
+                <li><a href="/User/SignOut" class="bracket"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+            }
+            else
+            {
+
+                <li><a href="/User/Login"><i class="fa-solid fa-user"></i></a></li>
+            }
+            <li class="lang">EN</li>
+
+        </ul>
+        <div class="setting">
+            <h3>Language</h3>
+            <hr>
+            <div class="language">
+                <div class="language1">
+                    <p>Azerbaijan</p>
+                    <img src="/img/download.png" alt="">
+                </div>
+                <div class="language1">
+                    <p>English</p>
+                    <img src="/img/download.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="nav-responsive">
+        <ul>
+            <li><i class="fa-solid fa-clock"></i><p class="hours">15:07</p></li>
+            <li><i class="fa-solid fa-cloud"></i><p class="weather"><span></span>°C</p></li>
+            <li><a href="/Home/Index/#position">Position</a></li>
+            <li><a href="/Home/Index/#services">Services</a></li>
+            <li><a href="/Home/Index/#news">News</a></li>
+            <li><a href="/Home/Index/#about">About</a></li>
+            <li><a href="/Home/Index/#contact">Contact</a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                @if (User.FindFirst(ClaimTypes.NameIdentifier).Value == "Şəbnəm")
+                {
+                    <li><a href="/Admin/AdminPanel">Admin</a></li>
+                }
+                else
+                {
+                    <li><a href="/Home/Basket">@User.FindFirst(ClaimTypes.NameIdentifier).Value</a></li>
+                }
+                <li><a href="/Home/Ticket">Ticket</a></li>
+                <li><a href="/User/SignOut" class="bracket"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+            }
+            else
+            {
+
+                <li><a href="/User/Login"><i class="fa-solid fa-user"></i></a></li>
+            }
+            <li class="lang">EN</li>
+
+        </ul>
+    </div>
+
+
+
+<header class="header5">
+    <div class="ticket-text">
+        <div class="ticket-text1" data-aos="fade-right"
+             data-aos-easing="ease"
+             data-aos-duration="2000">
+            <h1>READY FOR YOUR NEXT TRIP?</h1>
+        </div>
+        <div class="form-container">
+            <div class="container1">
+                <h1><i class="fa-solid fa-plane"></i>FLIGHTS</h1>
+            </div>
+          
+            <div class="container2">
+                <div class="left-date">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    <label class="From">From</label>
+                            <input type="text" placeholder="Where are you going from?" name="from" id="inputval">
+                </div>
+                <div class="change">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                </div>
+                <div class="right-date">
+                    <i class="fa-solid fa-plane-arrival"></i>
+                    <label class="To">To</label>
+                            <input type="text" placeholder="Where are you going?" name="to" id="inputval">
+                </div>
+        @*        <div class="div">
+                    <label class="Passenger">Passenger</label>
+                    <div class="div-passenger">
+                        <i class="fa-solid fa-minus"></i>
+                        <p>1</p>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>*@
+                        <select asp-items="ViewBag.Economies" name="economy">
+                    <option value="">Select</option>
+                   
+                </select>
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+         
+        </div>
+        <div class="date">
+@*            <div class="add">
+                <a href=""><i class="fa-solid fa-plus"></i> Add Flight</a>
+            </div>*@
+            <div id="pageWrapper">
+                <div id="pageMasthead" class="pageSection"></div>
+
+                <div id="pageContentArea" class="pageSection">
+                 
+                        <label for="txtDateRange">Date Range:</label>
+
+                            <input type="date" id="txtDateFrom"  name="DepartureDate" placeholder="Departure Date"/>
+                            <input type="date" id="txtDateTo"  name="ArrivalTime" />
+                   
+                </div>
+                <div id="pageFooter" class="pageSection"></div>
+            </div>
+        </div>
+
+    </div>
+</header>
+    <div class="modal-alert">
+        <div class="inform">
+            <div class="alert-info">
+            <h2>No Flight</h2>
+            <i class="fa-solid fa-xmark"></i>
+            </div>
+            <p>There are no flights for the requested period.Try to modify your search.</p>
+            <a href="/Home/Ticket">Ok</a>
+        </div>
+        </div>
+<section class="section">
+    <h1 class="text-h1">Buy Ticket</h1>
+    <div class="section1">
+        <div class="section-top">
+            <a href="/Home/Ticket">Select Flight</a>
+        </div>
+        <div class="section-center" >
+
+            
+               @* <div class="ticket">
+                <div class="ticket1">
+                        <h1>item.TicketDepartureTime</h1>
+                        <p>item.TicketFrom</p>
+                        <span>item.TicketDepartureDate</span>
+                </div>
+                <div class="ticket2">
+                    <div class="plane">
+                        <i class="fa-solid fa-plane-departure"></i>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="plane1">
+                            <div class="time">item.TicketHour</div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="plane">
+                        <i class="fa-solid fa-plane-arrival"></i>
+                        <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="ticket1">
+                        <h1>item.TicketArrivalTime</h1>
+                        <p>item.TicketTo</p>
+                        <span>item.TicketArrivalDate</span>
+                </div>
+                <div class="ticket4">
+                    <a href="/Home/Payment/item.TicketId">$item.TicketPrice</a>
+                    <p><i class="fa-solid fa-user"></i> 1 Passenger</p>
+                    <p>item.TicketEconomy.EconomyName</p>
+                </div>
+            </div>*@
+            
+        </div>
+    </div>
+</section>
+
+<script>
+
+        $(".container2 .change").click(function () {
+        var leftVal = $(".left-date input").val()
+            var rightVal = $(".right-date input").val()
+         
+            $(".left-date input").val(rightVal)
+            $(".right-date input").val(leftVal)
+        })
+
+
+        $(".inform .fa-xmark").click(function () {
+            alert()
+            $(".inform").css("display","none")
+        })
+
+</script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+        //$(".container2 button").click(function () {
+        //    alert();
+        //    $(".section").css("display","block")
+        //    var inputValue = $("#inputval").val();
+        //    if (inputValue === "") {
+        //        $("#inputval").css("borderColor", "red")
+        //    }else{
+        //        $(".section").show()
+        //    })
+
+        //})
+
+
+        $(".container2 button").click(function(){
+           var inpVal= $(".left-date input")
+           var inpVal1=$(".right-date input")
+           var categoryId=$(".container2 select")
+            var fromDate = $("#txtDateFrom")
+            var toDate = $("#txtDateTo")
+            $.get("/Home/TicketData?from=" + inpVal.val()+"&&to="+inpVal1.val()+"&&catId="+categoryId.val()+"&&fromDate="+fromDate.val()+"&&toDate="+toDate.val(), function (res) {
+                console.log(res)
+                if(res.length==0){
+                    $(".inform").show()
+                }else{
+                    res.forEach(x=>{
+                        console.log(x)
+                        $(".section-center").append(
+                            ` <div class="ticket">
+                        <div class="ticket1">
+                                        <h1>${x.ticketDepartureTime}</h1>
+                                        <p>${x.ticketFrom}</p>
+                                                <span>${(x.ticketDepartureDate).slice(0,10)}</span>
+                        </div>
+                        <div class="ticket2">
+                            <div class="plane">
+                                <i class="fa-solid fa-plane-departure"></i>
+                                <div class="circle"></div>
+                            </div>
+                            <div class="plane1">
+                                                    <div class="time">${x.ticketHour}</div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="plane">
+                                <i class="fa-solid fa-plane-arrival"></i>
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                        <div class="ticket1">
+                                                <h1>${x.ticketArrivalTime}</h1>
+                                                <p>${x.ticketTo}</p>
+                                                          <span>${(x.ticketDepartureDate).slice(0, 10)}</span>
+                        </div>
+                        <div class="ticket4">
+                                                <a href="/Home/BasketData/${x.ticketId}">$${x.ticketPrice}</a>
+                            <p><i class="fa-solid fa-user"></i> 1 Passenger</p>
+                                    <p>${x.ticketEconomy.economyName}</p>
+                        </div>
+                    </div>
+
+                                `
+                        
+                        )
+                    })
+                }
+            })
+        })
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    AOS.init();
+</script>
+    <script src="~/js/site.js"></script>
+    <script src="/js/ticket.js"></script>
+    @*<script src="vendor/select2/dist/js/select2.min.js"></script>*@
+
+</body>
+</html>

@@ -1,0 +1,606 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@600;700&family=EB+Garamond:ital,wght@1,500&family=Noto+Serif+Ottoman+Siyaq&family=Poppins:wght@400;500&family=Tangerine&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.basket-page {
+    width: 100%;
+    background-color: #eaedf6;
+    padding: 40px 0px;
+}
+
+.bars {
+    display: none;
+}
+
+.lang{
+    font-size: 20px;
+}
+
+.setting {
+    width: 15%;
+    background-color: rgba(150, 144, 144, 0.427);
+    color: white;
+    position: absolute;
+    right: 20px;
+    top: 70px;
+    display: none;
+}
+
+    .setting h3 {
+        font-size: 17px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding-left: 7px;
+        padding-top: 7px;
+    }
+
+    .setting hr {
+        width: 85%;
+        margin-top: 10px;
+        margin-left: 7px;
+    }
+
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+}
+
+.logo {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+    .logo img {
+        width: 15%;
+    }
+
+nav h1 {
+    font-size: 34px;
+    /*color: #6293bb;*/
+    color: rgba(35, 68, 88, 0.899);
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 10px;
+}
+
+    nav ul li {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        color: rgba(35, 68, 88, 0.899);
+        margin-left: 22px;
+    }
+
+        nav ul li p {
+            font-size: 17px;
+            margin-left: 10px;
+            font-weight: 500;
+        }
+
+nav i {
+    font-size: 20px;
+}
+
+nav a {
+    color: rgba(35, 68, 88, 0.899);
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+nav ul li a:hover {
+    color: #a1bdce;
+}
+
+
+.active {
+    color: rgba(35, 68, 88, 0.899) !important;
+}
+
+.active1 {
+    color: #5a6672 !important;
+}
+
+.active2 {
+    top: 100% !important;
+}
+
+#layout1-nav .setting {
+    top: 70%;
+}
+
+#layout-nav .setting {
+    top: 100%;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    filter: drop-shadow(0px 0px 10px #959699);
+    position: fixed;
+    z-index: 100000;
+    top: 0px;
+    /*background-color: #4c6d99;*/
+}
+
+.nav-responsive {
+    display: none;
+}
+
+.logo {
+    width: 9%;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    /*margin-right: 150px;*/
+    margin-top: -10px;
+}
+
+    .logo img {
+        width: 55%;
+    }
+
+.logo1 {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 50px;
+    /*margin-right: 150px;*/
+    margin-top: -20px;
+}
+
+    .logo1 img {
+        width: 100%;
+    }
+
+nav h1 {
+    font-size: 34px;
+}
+
+.ul-responsive {
+    width: 70%;
+    display: flex !important;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.nav ul {
+    width: 77%;
+}
+
+    .nav ul li {
+        display: flex;
+        margin-left: 30px;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+    }
+
+        .nav ul li p {
+            display: flex !important;
+            justify-content: space-between;
+            font-size: 17px;
+            margin-left: 10px;
+            font-weight: 500;
+        }
+
+.nav i {
+    font-size: 20px;
+}
+
+.nav a {
+    color: white;
+    /*margin-left: -20px;*/
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+    .nav a:hover {
+        color: #a1bdce;
+    }
+
+.nav-responsive {
+    display: none;
+}
+
+/*.ul-responsive{
+    display: none;
+}*/
+
+.setting {
+    width: 15%;
+    background-color: rgba(150, 144, 144, 0.427);
+    color: white;
+    position: absolute;
+    right: 20px;
+    display: none;
+}
+
+    .setting h3 {
+        font-size: 17px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding-left: 7px;
+        padding-top: 7px;
+    }
+
+    .setting hr {
+        width: 85%;
+        margin-top: 10px;
+        margin-left: 7px;
+    }
+
+.lang {
+    font-size: 20px;
+    cursor: pointer;
+    /*margin-right: 200px;*/
+}
+
+.language {
+    margin-top: 12px;
+}
+
+.language1 {
+    width: 85%;
+    height: 50px;
+    font-size: 14px;
+    padding-top: 7px;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .language1 img {
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        margin-left: 50px;
+    }
+
+.basket {
+    width: 90%;
+    /* background-color: #eaedf6; */
+    background-color: white;
+    margin: 70px auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding-top: 10px;
+    z-index: 0;
+    border-radius: 0.2cm;
+}
+
+.basket-top {
+    overflow-y: scroll;
+    height: 310px;
+    padding-bottom: 10px;
+}
+
+    .basket-top .ticket {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        margin-top: 17px;
+        width: 90%;
+        margin: 20px auto;
+    }
+
+.ticket {
+    width: 90%;
+    height: 130px;
+    background-color: white;
+    margin-top: 17px;
+    border-radius: 0.2cm;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+    .ticket h1 {
+        font-weight: 400;
+        font-size: 30px;
+    }
+
+    .ticket p {
+        color: rgb(123, 123, 123);
+    }
+
+    .ticket span {
+        color: rgb(123, 123, 123);
+        font-size: 14px;
+    }
+
+.ticket2 {
+    width: 25%;
+    display: flex;
+    padding: 20px;
+}
+
+.ticket1, .ticket3 {
+    padding-top: 10px;
+}
+
+.plane i {
+    color: rgb(123, 123, 123);
+    padding-left: 5px;
+}
+
+.plane1 {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.time {
+    text-align: center;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    margin: 22px auto;
+    border-radius: 100%;
+    border: 1px solid rgb(123, 123, 123);
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    margin-top: 19px;
+    background-color: rgb(123, 123, 123);
+}
+
+.ticket4 {
+    height: 130px;
+    border-left: 1px solid rgb(198, 198, 198);
+}
+
+    .ticket4 a {
+        display: block;
+        padding: 10px 70px;
+        border-radius: 0.7cm;
+        font-weight: 500;
+        margin-top: 30px;
+        margin-left: 30px;
+        background-color: #6f99ac;
+        text-decoration: none;
+        color: white;
+    }
+
+    .ticket4 p {
+        font-size: 12px;
+        display: inline-block;
+        padding-left: 30px;
+        padding-top: 10px;
+    }
+
+.confirmation {
+    width: 100%;
+    border-bottom-left-radius: 0.2cm;
+    border-bottom-right-radius: 0.2cm;
+    padding: 20px;
+    background-color: white;
+    margin: 40px auto;
+    display: flex;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    justify-content: space-around;
+    align-items: center;
+    color: rgb(123, 123, 123);
+}
+
+    .confirmation a {
+        text-decoration: none;
+        color: rgb(123, 123, 123);
+    }
+
+.information {
+    border-bottom: 1px solid rgb(123, 123, 123);
+}
+
+.confirmation .confirm {
+    padding: 12px 50px;
+    border: 1px solid rgb(123, 123, 123);
+    border-radius: 0.2cm;
+}
+
+.remove-class {
+    width: 14%;
+    margin-top: 32px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    color: silver;
+    border: 1px solid #6f99ac;
+    border-radius: 0.5cm;
+    cursor: pointer;
+    background-color: white;
+    transition: 1s;
+}
+
+    .remove-class:hover {
+        background-color: #6f99ac;
+        color: white;
+    }
+
+@media (max-width:768px) {
+    .nav {
+        display: flex;
+        height: 90px;
+        align-items: center;
+    }
+
+    .logo {
+        width: 20%;
+        margin-left: 2px;
+        margin-top: 0px;
+    }
+
+    .weather span {
+        font-size: 17px !important;
+    }
+
+    .logo img {
+        width: 70%;
+    }
+
+    .bars {
+        display: block;
+    }
+
+        .bars i {
+            margin-right: 23px;
+            font-size: 27px;
+        }
+
+    .header-box {
+        width: 70%;
+    }
+
+    .nav-responsive {
+        width: 50%;
+        background-color: rgba(150, 144, 144, 0.427);
+        padding: 10px;
+        display: none;
+        position: absolute;
+        top: 11%;
+        left: 49%;
+        position: fixed;
+        z-index: 1000;
+        color: white;
+    }
+
+        .nav-responsive ul li {
+            display: flex;
+            align-items: center;
+            padding-top: 4px;
+        }
+
+            .nav-responsive ul li p {
+                padding-left: 7px;
+                padding-top: 4px;
+            }
+
+        .nav-responsive a {
+            color: white;
+            text-decoration: none;
+        }
+
+    .fa-clock {
+        display: inline-block;
+    }
+
+    .setting {
+        width: 50%;
+        right: 3px;
+        color: white !important;
+    }
+
+    .ul-responsive {
+        display: none !important;
+    }
+
+
+    .ticket {
+        width: 100%;
+        height: 200px;
+        flex-wrap: wrap;
+    }
+
+        .ticket h1 {
+            font-size: 17px;
+        }
+
+        .ticket span {
+            font-size: 12px;
+        }
+
+        .ticket p {
+            font-size: 12px;
+        }
+
+        .ticket .time {
+            font-size: 12px;
+        }
+
+        .ticket .line {
+            margin-top: 12px !important;
+        }
+
+    .ticket2 {
+        width: 40%;
+        display: flex;
+        padding: 10px;
+    }
+
+    .ticket1 {
+        padding: 10px;
+        width: 30% !important;
+    }
+
+    .ticket3 {
+        width: 30% !important;
+    }
+
+    .ticket1, .ticket3 {
+        padding-top: 10px;
+    }
+
+    .circle {
+        margin: 10px auto;
+    }
+
+    .ticket4 {
+        width: 100%;
+        height: 100px;
+        padding: 15px;
+        border-top: 1px solid rgb(198, 198, 198);
+        border-left: none;
+    }
+
+        .ticket4 a {
+            width: 60%;
+            text-align: center;
+            padding: 5px;
+            margin: -5px auto;
+        }
+
+        .remove-class{
+            width: 55%;
+            padding: 5px;
+            margin-top: -35px;
+        }
+
+        .ticket4 p {
+            font-size: 11px;
+            padding-left: 55px;
+        }
+
+    .confirmation {
+        font-size: 12px;
+    }
+
+        .confirmation .confirm {
+            padding: 12px 30px;
+        }
+
+    }
